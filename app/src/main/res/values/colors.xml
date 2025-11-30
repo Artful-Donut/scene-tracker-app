@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="peachGlow">#F8C69F</color>
+    <color name="brightLavender">#B26ECA</color>
+    <color name="dustyGrape">#60488A</color>
+    <color name="softBlush">#F3DDDA</color>
+    <color name="softPeriwinkle">#877CC6</color>
+    <color name="lavenderVeil">#e8d9fa</color>
+</resources>
