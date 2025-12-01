@@ -7,5 +7,5 @@ It's still rough, but useable. More changes to come soon!
 * See events by character
 * See events by month
 
-# HOW TO FIND THE EXECUTABLE APK:
-app > build > outputs > apk > debug > scene-tracker1.apk
+# EXECUTABLE APK:
+scene-tracker1.apk
