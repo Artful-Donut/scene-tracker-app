@@ -190,7 +190,9 @@ public class EventActivity extends AppCompatActivity {
                         event.name = newName;
                         event.month = newMonth;
                         // TODO: Make sure this isn't fucking things up. I'm sure it's not tho
-                        // also TODO: Failsafes for bad numbers
+                        // also TODO: Failsafes for bad numbers (Note: this is time consuming)
+
+                        Log.i("PROJ3", "Editing event");
                         event.day = newDay;
 
                         event.time = newTime;
@@ -201,10 +203,12 @@ public class EventActivity extends AppCompatActivity {
                         eventDB.eventDAO().updateEvent(event);
                     } else {
                         // Create new event
+                        Log.i("PROJ3", "Created new event");
                         Event newEvent = new Event(characterID, newMonth, newDay, newTime, newName, newCharacters, newSynopsis);
                         // Add to the database and update the activity's event id
                         eventDB.eventDAO().addEvent(newEvent);
                         eventID = newEvent.id;
+                        event = newEvent; // wait did i just forget to put this in? lol
 
                         // And a toast :3, for fun
                         Toast.makeText(EventActivity.this, "Event successfully created!", Toast.LENGTH_SHORT).show();
