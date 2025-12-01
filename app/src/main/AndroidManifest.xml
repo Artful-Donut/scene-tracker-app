@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_app_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Nguyen_Project3">
+        android:theme="@style/Theme.Nguyen_Project3"
+        android:windowSoftInputMode="adjustResize">
         <activity
             android:name=".EventActivity"
             android:exported="false" />

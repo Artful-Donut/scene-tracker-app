@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:outlineAmbientShadowColor="#FFFFFF"
+    android:paddingBottom="80dp"
     tools:context=".EventActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -21,207 +22,217 @@
         app:navigationIcon="@android:drawable/ic_menu_revert"
         app:title="CharacterName" />
 
-    <FrameLayout
-        android:id="@+id/eventFrameLayout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="ifContentScrolls">
+        android:fillViewport="true">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/editEventButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="20dp"
-            android:clickable="false"
-            android:src="@android:drawable/ic_menu_edit" />
-
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/eventFrameLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:overScrollMode="ifContentScrolls">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/editEventButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="20dp"
+                android:clickable="false"
+                android:src="@android:drawable/ic_menu_edit" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/deleteEventButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0"
-                    android:visibility="gone"
-                    app:srcCompat="@android:drawable/ic_menu_delete" />
-
-                <EditText
-                    android:id="@+id/eventNameInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|center_vertical"
-                    android:layout_weight="0"
-                    android:background="@drawable/border"
-                    android:ems="10"
-                    android:hint="Event Name"
-                    android:textColor="@color/dustyGrape"
-                    android:inputType="text|textAutoCorrect"
-                    android:paddingVertical="20dp"
-                    android:textAlignment="center" />
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:paddingHorizontal="5dp"
-                android:paddingVertical="20dp">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="start|center_vertical"
-                    android:text="Date:"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Spinner
-                    android:id="@+id/monthSpinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:entries="@array/month_array"
-                    android:spinnerMode="dropdown"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/textView2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <EditText
-                    android:id="@+id/dayInput"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:ems="10"
-                    android:inputType="number"
-                     
-                    android:textColor="@color/dustyGrape"
-                    android:maxLength="2"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/timeSpinner"
-                    app:layout_constraintStart_toEndOf="@+id/monthSpinner"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Spinner
-                    android:id="@+id/timeSpinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:entries="@array/time_array"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="1">
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Characters:"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/charactersInput"
-                    android:layout_width="250dp"
-                    android:layout_height="match_parent"
-                    android:autofillHints="Write Characters Here"
-                    android:background="@drawable/border"
-                    android:ems="10"
-                    android:hint="Write Characters here, separated by a comma"
-                     
-                    android:textColor="@color/dustyGrape"
-                    android:inputType="text"
-                    android:padding="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView6"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_weight="4"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:paddingVertical="5dp"
-                    android:text="Summary:"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/synopsisInput"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/deleteEventButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0"
+                        android:visibility="gone"
+                        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+                    <EditText
+                        android:id="@+id/eventNameInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|center_vertical"
+                        android:layout_weight="0"
+                        android:background="@drawable/border"
+                        android:ems="10"
+                        android:hint="Event Name"
+                        android:inputType="text|textAutoCorrect"
+                        android:paddingVertical="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/dustyGrape" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
                     android:layout_weight="1"
-                    android:background="@drawable/border"
-                    android:ems="10"
-                    android:gravity="start|top"
-                    android:hint="Write summary here"
-                     
-                    android:textColor="@color/dustyGrape"
-                    android:inputType="text|textAutoCorrect|textCapSentences|textMultiLine"
-                    android:isScrollContainer="true"
-                    android:padding="5dp"
-                    android:selectAllOnFocus="false"
-                    android:singleLine="false"
-                    android:textAlignment="viewStart"
-                    tools:layout_weight="10" />
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="20dp">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="start|center_vertical"
+                        android:text="Date:"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Spinner
+                        android:id="@+id/monthSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:entries="@array/month_array"
+                        android:spinnerMode="dropdown"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/textView2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <EditText
+                        android:id="@+id/dayInput"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:ems="10"
+
+                        android:hint="Day"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:textAlignment="center"
+                        android:textColor="@color/dustyGrape"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/timeSpinner"
+                        app:layout_constraintStart_toEndOf="@+id/monthSpinner"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Spinner
+                        android:id="@+id/timeSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:entries="@array/time_array"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Characters:"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/charactersInput"
+                        android:layout_width="250dp"
+                        android:layout_height="match_parent"
+                        android:autofillHints="Write Characters Here"
+                        android:background="@drawable/border"
+                        android:ems="10"
+                        android:hint="Write Characters here, separated by a comma"
+
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@color/dustyGrape"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textView6"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="4"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:paddingVertical="5dp"
+                        android:text="Summary:"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/synopsisInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        android:ems="10"
+                        android:gravity="start|top"
+                        android:hint="Write summary here"
+
+                        android:inputType="text|textAutoCorrect|textCapSentences|textMultiLine"
+                        android:isScrollContainer="true"
+                        android:padding="5dp"
+                        android:selectAllOnFocus="false"
+                        android:singleLine="false"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/dustyGrape"
+                        tools:layout_weight="10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginVertical="20dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/finishedCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/softPeriwinkle" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:text="Finished?" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_margin="5dp"
-                android:layout_marginVertical="20dp"
-                android:orientation="horizontal">
+        </FrameLayout>
+    </ScrollView>
 
-                <CheckBox
-                    android:id="@+id/finishedCheckBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/softPeriwinkle" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:text="Finished?" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </FrameLayout>
 
 </LinearLayout>
