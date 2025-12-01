@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Nguyen_Project3</string>
+    <string name="app_name">Character Scheduler</string>
     <!-- to toggle the open close button of the navigation drawer -->
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>

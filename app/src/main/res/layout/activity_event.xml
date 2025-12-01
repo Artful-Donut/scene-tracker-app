@@ -25,13 +25,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:fitsSystemWindows="false"
+        android:isScrollContainer="true">
 
         <FrameLayout
             android:id="@+id/eventFrameLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:overScrollMode="ifContentScrolls">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/editEventButton"
@@ -49,7 +50,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:layout_margin="5dp"
                     android:layout_weight="0"
                     android:orientation="horizontal">
@@ -66,9 +67,8 @@
                     <EditText
                         android:id="@+id/eventNameInput"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center|center_vertical"
-                        android:layout_weight="0"
                         android:background="@drawable/border"
                         android:ems="10"
                         android:hint="Event Name"
@@ -109,7 +109,7 @@
 
                     <EditText
                         android:id="@+id/dayInput"
-                        android:layout_width="100dp"
+                        android:layout_width="80dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4"
                         android:ems="10"
@@ -140,7 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:layout_marginHorizontal="5dp"
-                    android:layout_weight="1">
+                    android:layout_weight="0">
 
                     <TextView
                         android:id="@+id/textView6"

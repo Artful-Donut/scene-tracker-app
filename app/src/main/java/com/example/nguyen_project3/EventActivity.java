@@ -89,7 +89,8 @@ public class EventActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_event);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.eventNameInput), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            // Set the inset to "ime" for text applications apparently
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.ime());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
